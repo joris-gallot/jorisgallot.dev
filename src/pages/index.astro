@@ -10,16 +10,16 @@ import { getCollection } from 'astro:content'
 const blog = (await getCollection('blog'))
   .filter(post => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE)
+  .slice(0, SITE.numPostsOnHomePage)
 
 const projects = (await getCollection('projects'))
   .filter(project => !project.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE)
+  .slice(0, SITE.numProjectsOnHomePage)
 
 const allwork = (await getCollection('work'))
   .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf())
-  .slice(0, SITE.NUM_WORKS_ON_HOMEPAGE)
+  .slice(0, SITE.numWorksOnHomePage)
 
 const work = await Promise.all(
   allwork.map(async (item) => {
@@ -30,7 +30,7 @@ const work = await Promise.all(
 
 ---
 
-<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+<PageLayout title={HOME.title} description={HOME.description}>
   <Container>
     <h4 class="animate font-semibold text-black dark:text-white">
       Hi, I'm Nano <span class="text-xl">👋🏻</span>
@@ -141,15 +141,15 @@ const work = await Promise.all(
         <ul class="flex flex-wrap gap-2">
           {SOCIALS.map(SOCIAL => (
             <li class="flex gap-x-2 text-nowrap">
-              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
-                {SOCIAL.NAME}
+              <Link href={SOCIAL.href} external aria-label={`${SITE.name} on ${SOCIAL.name}`}>
+                {SOCIAL.name}
               </Link>
               /
             </li>
           ))}
           <li class="line-clamp-1">
-            <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`}>
-              {SITE.EMAIL}
+            <Link href={`mailto:${SITE.email}`} aria-label={`Email ${SITE.name}`}>
+              {SITE.email}
             </Link>
           </li>
         </ul>

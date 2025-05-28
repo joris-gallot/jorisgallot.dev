@@ -1,18 +1,18 @@
 export interface Site {
-  YEAR: number
-  NAME: string
-  EMAIL: string
-  NUM_POSTS_ON_HOMEPAGE: number
-  NUM_WORKS_ON_HOMEPAGE: number
-  NUM_PROJECTS_ON_HOMEPAGE: number
+  year: number
+  name: string
+  email: string
+  numPostsOnHomePage: number
+  numWorksOnHomePage: number
+  numProjectsOnHomePage: number
 }
 
 export interface Metadata {
-  TITLE: string
-  DESCRIPTION: string
+  title: string
+  description: string
 }
 
 export type Socials = {
-  NAME: string
-  HREF: string
+  name: string
+  href: string
 }[]

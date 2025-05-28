@@ -1,5 +1,6 @@
 ---
 company: "365Talents"
+companyUrl: "https://365talents.com/en"
 role: "Software Engineer"
 dateStart: "10/27/2022"
 dateEnd: "Current"

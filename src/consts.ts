@@ -5,7 +5,7 @@ export const SITE: Site = {
   name: 'Joris Gallot',
   email: 'joris.gallot18@gmail.com',
   numPostsOnHomePage: 3,
-  numWorksOnHomePage: 2,
+  numWorksOnHomePage: 1,
   numProjectsOnHomePage: 3,
 }
 

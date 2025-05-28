@@ -5,4 +5,4 @@ dateStart: "09/01/2019"
 dateEnd: "08/31/2020"
 ---
 
-Iure illo neque tempora, voluptatem est quaerat voluptas praesentium ipsa dolorem dignissimos nulla ratione distinctio quae maiores eligendi nostrum? Quibusdam, debitis voluptatum, lorem ipsum dolor. Sit amet consectetur adipisicing elit.
+At MJ-Fleet, I worked on a web-based back-office application using Node.js, Vue.js, and TypeScript. I actively contributed to the migration from JavaScript to TypeScript, while maintaining the platform and developing new features.

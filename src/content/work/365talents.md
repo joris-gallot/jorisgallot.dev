@@ -5,4 +5,4 @@ dateStart: "10/27/2022"
 dateEnd: "Current"
 ---
 
-Sit amet consectetur adipisicing elit. Iure illo neque tempora, voluptatem est quaerat voluptas praesentium ipsa dolorem dignissimos nulla ratione distinctio quae maiores eligendi nostrum? Quibusdam, debitis voluptatum, lorem ipsum dolor.
+At 365Talents, I work as a fullstack developer on a SaaS HR platform. My work involves fixing bugs, developing new product features, and improving the developer experience across the codebase using Node.js, Vue.js, and TypeScript.

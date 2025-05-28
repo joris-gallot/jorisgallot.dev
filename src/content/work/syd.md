@@ -5,4 +5,4 @@ dateStart: "09/01/2020"
 dateEnd: "09/27/2022"
 ---
 
-Voluptatem est quaerat voluptas praesentium ipsa dolorem dignissimos nulla ratione distinctio quae maiores eligendi nostrum? Quibusdam, debitis voluptatum, lorem ipsum dolor. Sit amet consectetur adipisicing elit. Iure illo neque tempora.
+At Syd, I worked as a fullstack developer in a web agency, contributing to various web applications built with Angular, NestJS, and TypeScript. My role involved maintaining existing applications and actively developing new client projects from the ground up.

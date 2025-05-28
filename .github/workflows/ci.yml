@@ -19,6 +19,9 @@ jobs:
       - name: Setup Environment
         uses: ./.github/actions/setup
 
+      - name: Astro check
+        run: pnpm check
+
       - name: Typecheck
         run: pnpm typecheck
 

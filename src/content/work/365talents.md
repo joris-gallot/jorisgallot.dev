@@ -1,7 +1,7 @@
 ---
-company: "Google"
-role: "Staff Software Engineer"
-dateStart: "11/27/2022"
+company: "365Talents"
+role: "Software Engineer"
+dateStart: "10/27/2022"
 dateEnd: "Current"
 ---
 

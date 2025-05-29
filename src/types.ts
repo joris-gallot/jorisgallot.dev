@@ -8,7 +8,7 @@ export interface Site {
 }
 
 export interface Metadata {
-  title?: string
+  title: string
   description: string
 }
 

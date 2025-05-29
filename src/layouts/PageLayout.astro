@@ -3,11 +3,9 @@ import Footer from '@components/Footer.astro'
 import Head from '@components/Head.astro'
 import Header from '@components/Header.astro'
 import { SITE } from '@consts'
+import type { PageMetadata } from '@consts';
 
-type Props = {
-  title?: string
-  description: string
-}
+type Props = Pick<PageMetadata, 'title' | 'description'>
 
 const { title, description } = Astro.props;
 ---
@@ -15,7 +13,7 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
-    <Head title={title ? `${title} | ${SITE.name}` : SITE.name} description={description} />
+    <Head title={title === 'Home' ? SITE.name : `${title} | ${SITE.name}`} description={description} />
   </head>
   <body>
     <Header />

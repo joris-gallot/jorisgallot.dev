@@ -29,8 +29,6 @@ export const PROJECTS = {
   description: 'A collection of my projects, with links to repositories and demos.',
 } as const satisfies Metadata
 
-export type PageMetadata = (typeof HOME | typeof BLOG | typeof WORK | typeof PROJECTS)
-
 export const SOCIALS: Socials = [
   {
     name: 'github',

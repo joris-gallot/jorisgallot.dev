@@ -1,5 +1,4 @@
 export interface Site {
-  year: number
   name: string
   email: string
   numPostsOnHomePage: number

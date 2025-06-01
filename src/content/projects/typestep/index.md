@@ -13,7 +13,7 @@ Typestep solves this problem by enabling an **incremental migration strategy**:
 
 1. **Prevent regression** - Ensure new code follows TypeScript rules
 1. **Catalog existing errors** - Creates a config file that tracks all current type issues
-3. **Enforce immediately** - Lets you add TypeScript checking to CI without breaking builds
+1. **Enforce immediately** - Lets you add TypeScript checking to CI without breaking builds
 
 ## Configuration Flexibility
 
@@ -32,7 +32,7 @@ export default {
     },
     // Use functions for dynamic filtering
     'src/utils/date-formatter.ts': ({ error }) => {
-      return error.includes("Property does not exist")
+      return error.includes('Property does not exist')
     }
   },
   // Global error codes to ignore in all files
@@ -41,7 +41,6 @@ export default {
 ```
 
 This approach gives you precise control over your migration strategy while keeping your CI pipeline running smoothly.
-
 
 ## Learn More
 

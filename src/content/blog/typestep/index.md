@@ -1,7 +1,7 @@
 ---
 title: "Introducing Typestep"
 description: "TypeScript Migration, One Step at a Time"
-date: "Mar 18 2025"
+date: "Jun 1 2025"
 repoURL: "https://github.com/joris-gallot/typestep"
 ---
 
@@ -58,7 +58,7 @@ export default {
     },
     // ... 35 more files with their specific error codes
   },
-} satisfies TypestepConfig;
+} satisfies TypestepConfig
 ```
 
 ### Incorporate into CI Pipeline
@@ -74,8 +74,9 @@ typestep run tsc-output.log
 ```
 
 Since all current errors are registered in the config, our build passes successfully. We've achieved two crucial things:
+
 1. Added TypeScript to our project
-2. Ensured new code can't introduce *new* type errors
+2. Ensured new code can't introduce _new_ type errors
 
 ### Incremental Progress
 
@@ -120,6 +121,7 @@ typestep status
 ```
 
 Output:
+
 ```
 TypeScript Migration Status:
 ✅ Type-safe files: 12 (31.6%)

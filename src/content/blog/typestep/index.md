@@ -95,11 +95,17 @@ typestep run tsc-output.log
 Typestep automatically detects that these files no longer have errors and suggests removing them from the ignore list:
 
 ```
-✅ The following files no longer have errors and can be removed from ignoredFiles:
-  - src/utils/dates.ts
-  - src/api/types.ts
+◐ Processing tsc output file
+ℹ 219 errors ignored
 
-Run 'typestep update tsc-output.log' to update your config file automatically.
+ERROR  The following files were ignored in the config but had no errors in the tsc output:
+
+ ╭────────────────────────────────────────╮
+ │                                        │
+ │  src/utils/dates.ts                    │
+ │  src/api/types.ts                      │
+ │                                        │
+ ╰────────────────────────────────────────╯
 ```
 
 ### Updating the Config

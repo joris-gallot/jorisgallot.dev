@@ -2,5 +2,21 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "rangeStrategy": "bump",
+  "automergeType": "branch",
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "eslint",
+        "@antfu/eslint-config",
+        "eslint-plugin-astro",
+        "eslint-plugin-format",
+        "eslint-plugin-jsx-a11y",
+        "typescript"
+      ],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
   ]
 }

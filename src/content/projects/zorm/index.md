@@ -1,5 +1,5 @@
 ---
-title: "Zorm"
+title: "zorm"
 description: "A minimalist, type-safe ORM powered by Zod"
 date: "Jun 1 2025"
 repoURL: "https://github.com/joris-gallot/zorm"
@@ -12,7 +12,7 @@ repoURL: "https://github.com/joris-gallot/zorm"
 Zorm solves these problems with a **schema-first approach**:
 
 1. **Type-safe schema definition** - Define your entities using Zod schemas
-2. **Intuitive relation management** - Support for one-to-one, one-to-many, and many-to-many relationships 
+2. **Intuitive relation management** - Support for one-to-one, one-to-many, and many-to-many relationships
 3. **Fully typed query builder** - Autocomplete and type inference for entities and their relationships
 
 ## Key Features

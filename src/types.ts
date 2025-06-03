@@ -2,7 +2,6 @@ export interface Site {
   name: string
   email: string
   numPostsOnHomePage: number
-  numWorksOnHomePage: number
   numProjectsOnHomePage: number
 }
 

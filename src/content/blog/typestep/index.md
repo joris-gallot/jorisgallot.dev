@@ -118,7 +118,6 @@ Typestep simply passes through the original TypeScript errors for files that are
 
 ERROR  Found 1 error in 1 file:
 
-
  ╭───────────────────────╮
  │                       │
  │  src/router/index.ts  │

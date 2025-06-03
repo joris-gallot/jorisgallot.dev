@@ -14,27 +14,27 @@ repoURL: "https://github.com/joris-gallot/schematype"
 The library offers a straightforward API with powerful capabilities:
 
 ```typescript
-import { schemaToType } from "@schematype/core";
+import { schemaToType } from '@schematype/core'
 
 const userSchema = {
-  type: "object",
+  type: 'object',
   properties: {
-    id: { type: "string" },
-    name: { type: "string" },
-    age: { type: "number" },
+    id: { type: 'string' },
+    name: { type: 'string' },
+    age: { type: 'number' },
     address: {
-      type: "object",
+      type: 'object',
       properties: {
-        street: { type: "string" },
-        city: { type: "string" }
+        street: { type: 'string' },
+        city: { type: 'string' }
       }
     }
   },
-  required: ["id", "name"]
-};
+  required: ['id', 'name']
+}
 
-const tsType = schemaToType(userSchema, { name: "User" });
-console.log(tsType);
+const tsType = schemaToType(userSchema, { name: 'User' })
+console.log(tsType)
 // Outputs:
 // export type User = {
 //   id: string;
@@ -61,12 +61,12 @@ schematype supports a comprehensive set of JSON Schema features including:
 Beyond simple JSON Schema, schematype can process entire OpenAPI specifications:
 
 ```typescript
-import { openApiToTypes } from "@schematype/core";
+import { openApiToTypes } from '@schematype/core'
 
-const result = openApiToTypes(apiSpecification);
+const result = openApiToTypes(apiSpecification)
 
 // Result contains types for all paths and components
-console.log(result.paths[0]);
+console.log(result.paths[0])
 // {
 //   path: "/users/{id}",
 //   method: "get",

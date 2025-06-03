@@ -7,9 +7,9 @@ repoURL: "https://github.com/joris-gallot/zorm"
 
 ## Project Overview
 
-**Zorm** is a minimalist ORM powered by Zod that allows you to define and manipulate entities in a simple and type-safe way. When working with databases in TypeScript applications, ensuring type safety across your data layer can be challenging—especially when dealing with complex relationships.
+**Zorm** is a minimalist data normalization ORM powered by Zod, not an SQL ORM, it allows you to define and manipulate entities in a simple and type-safe way. When working with complex data structures in TypeScript applications, ensuring type safety and maintaining relationships across your data layer can be challenging.
 
-Zorm solves these problems with a **schema-first approach**:
+**What Zorm offers**:
 
 1. **Type-safe schema definition** - Define your entities using Zod schemas
 2. **Intuitive relation management** - Support for one-to-one, one-to-many, and many-to-many relationships
@@ -64,10 +64,12 @@ This approach provides full type safety and runtime validation throughout your d
 
 ## Framework Integration
 
-Zorm integrates seamlessly with popular frontend frameworks through dedicated integration packages:
+One of the significant challenges in developing Zorm was creating a core ORM system that remains completely framework-agnostic while still providing reactive capabilities. This architecture allows Zorm to be adapted to virtually any frontend framework through lightweight adapter packages.
+
+The core functionality is isolated in `@zorm-ts/core`, with framework-specific bindings currently available for:
 
 - **SolidJS**: `@zorm-ts/solidjs`
 - **Svelte**: `@zorm-ts/svelte`
 - **Vue**: `@zorm-ts/vue`
 
-Each integration provides framework-specific reactivity, making Zorm a perfect companion for your full-stack TypeScript applications.
+Each integration package handles the specific reactivity system of its framework, allowing developers to use Zorm with their preferred tools without compromising on type safety or performance. This modular approach also makes it straightforward to extend support to additional frameworks in the future.

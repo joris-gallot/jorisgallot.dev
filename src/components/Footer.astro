@@ -11,11 +11,11 @@ import { SITE } from '@consts';
         <BackToTop />
       </div>
     </div>
-    <div class="flex justify-between items-center">
-      <div>
+    <div class="flex flex-col sm:flex-row justify-between items-center">
+      <div class="order-1">
         &copy; 2025-PRESENT | {SITE.name}
       </div>
-      <div class="flex flex-wrap gap-1 items-center">
+      <div class="sm:order-1 flex flex-wrap gap-1 items-center">
         <button
           id="light-theme-button"
           aria-label="Light theme"

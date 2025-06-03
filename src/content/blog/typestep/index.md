@@ -108,33 +108,32 @@ ERROR  The following files were ignored in the config but had no errors in the t
  ╰────────────────────────────────────────╯
 ```
 
-### Updating the Config
+### Transparent Error Reporting
 
-We update our config to stop ignoring the fixed files:
-
-```bash
-typestep update tsc-output.log
-```
-
-Our `typestep.config.ts` is now automatically updated, with two fewer files in the `ignoredFiles` array. From now on, if anyone introduces a type error in these files, the CI will fail - gradually expanding our type-safe codebase.
-
-### Track Migration Progress
-
-Typestep includes a simple reporting command to track our migration progress:
-
-```bash
-typestep status
-```
-
-Output:
+Typestep simply passes through the original TypeScript errors for files that aren't in your ignore list:
 
 ```
-TypeScript Migration Status:
-✅ Type-safe files: 12 (31.6%)
-🔶 Ignored files: 26 (68.4%)
-📊 Total files: 38
+◐ Processing tsc output file
+ℹ 219 errors ignored
+
+ERROR  Found 1 error in 1 file:
+
+
+ ╭───────────────────────╮
+ │                       │
+ │  src/router/index.ts  │
+ │                       │
+ ╰───────────────────────╯
+
+src/router/index.ts(30,7): error TS2322: Type 'number' is not assignable to type 'string'.
 ```
 
-Over time, we see the percentage of type-safe files steadily increase as we systematically work through our technical debt.
+For non-ignored files, Typestep works exactly like TypeScript, simply displaying errors as they are.
 
----
+## Conclusion
+
+Typestep is fundamentally a simple but powerful comparison tool with flexible configuration options. It doesn't reinvent TypeScript checking or create its own type system - it just makes the existing TypeScript compiler more manageable during migration.
+
+By leveraging Typestep, teams can embrace TypeScript migration without the all-or-nothing approach that often derails adoption efforts. Start your TypeScript journey one step at a time.
+
+For more details on configuration options and advanced usage, check out the [Typestep repository](https://github.com/joris-gallot/typestep).

@@ -1,7 +1,7 @@
 ---
 title: "schematype"
 description: "Convert JSON Schema to TypeScript type declarations at Rust speed"
-date: "Jun 1 2025"
+date: "Mar 23 2025"
 repoURL: "https://github.com/joris-gallot/schematype"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "zorm"
 description: "A minimalist, type-safe ORM powered by Zod"
-date: "Jun 1 2025"
+date: "May 12 2025"
 repoURL: "https://github.com/joris-gallot/zorm"
 ---
 

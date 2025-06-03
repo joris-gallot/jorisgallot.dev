@@ -1,7 +1,7 @@
 ---
 title: "typestep"
 description: "Simplifies JavaScript to TypeScript migration with incremental changes"
-date: "Jun 1 2025"
+date: "Jan 21 2025"
 repoURL: "https://github.com/joris-gallot/typestep"
 ---
 

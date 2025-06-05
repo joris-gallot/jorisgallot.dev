@@ -30,7 +30,12 @@ const { title, description, image = '/nano.png' } = Astro.props;
 <link rel="manifest" href="/site.webmanifest" />
 <meta name="generator" content={Astro.generator} />
 
-<script defer data-domain="jorisgallot.dev" src="https://analytics.jorisgallot.dev/js/script.outbound-links.js"></script>
+<script
+  defer
+  data-domain="jorisgallot.dev"
+  data-api="https://small-art-948d.joris-gallot18.workers.dev/smallart/event"
+  src="https://small-art-948d.joris-gallot18.workers.dev/948d/script.outbound-links.js"
+></script>
 
 <!-- Font preloads -->
 <link rel="preload" href={inter400} as="font" type="font/woff2" crossorigin />

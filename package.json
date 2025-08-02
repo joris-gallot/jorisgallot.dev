@@ -19,7 +19,7 @@
     "clsx": "^2.1.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.19.0",
+    "@antfu/eslint-config": "^5.1.0",
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/rss": "^4.0.11",

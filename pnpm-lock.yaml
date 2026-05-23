@@ -32,7 +32,7 @@ importers:
         version: 3.7.2
       '@astrojs/tailwind':
         specifier: ^6.0.2
-        version: 6.0.2(astro@5.18.1(@types/node@24.12.4)(jiti@1.21.7)(rollup@4.41.1)(typescript@5.9.3)(yaml@2.9.0))(tailwindcss@3.4.17)
+        version: 6.0.2(astro@5.18.1(@types/node@24.12.4)(jiti@1.21.7)(rollup@4.41.1)(typescript@5.9.3)(yaml@2.9.0))(tailwindcss@3.4.19)
       '@fontsource/inter':
         specifier: ^5.2.8
         version: 5.2.8
@@ -41,7 +41,7 @@ importers:
         version: 5.2.8
       '@tailwindcss/typography':
         specifier: ^0.5.16
-        version: 0.5.16(tailwindcss@3.4.17)
+        version: 0.5.16(tailwindcss@3.4.19)
       eslint:
         specifier: ^9.39.2
         version: 9.39.2(jiti@1.21.7)
@@ -61,8 +61,8 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1
       tailwindcss:
-        specifier: ^3.4.17
-        version: 3.4.17
+        specifier: ^3.4.19
+        version: 3.4.19
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -206,19 +206,10 @@ packages:
     resolution: {integrity: sha512-qSs4ifwzKJSV39ucNjsvc6WVHs6b7S03sOh2OcHF9UHfVPqWWALUsNUVzhSBiItjRZoLHx7nIarVjqKVusUZ1Q==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/parser@7.27.3':
-    resolution: {integrity: sha512-xyYxRj6+tLNDTWi0KCBcZ9V7yg3/lwL9DWh9Uwh/RIVlIfFidggcgxKX3GCXwCiswwcGRawBKbEg2LG/Y8eJhw==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-
   '@babel/parser@7.29.3':
     resolution: {integrity: sha512-b3ctpQwp+PROvU/cttc4OYl4MzfJUWy6FZg+PMXfzmt/+39iHVF0sDfqay8TQM3JA2EUOyKcFZt75jWriQijsA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
-
-  '@babel/types@7.27.3':
-    resolution: {integrity: sha512-Y1GkI4ktrtvmawoSq+4FCVHNryea6uR+qUQy0AGxLSsjCX0nVmkYQMBLHDkXZuo5hGx7eYdnIaslsdBFm7zbUw==}
-    engines: {node: '>=6.9.0'}
 
   '@babel/types@7.29.0':
     resolution: {integrity: sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A==}
@@ -2546,9 +2537,6 @@ packages:
     resolution: {integrity: sha512-W+R+kFL4HgVxONq2bhXPi3bGpzGe/yEhVOp233qw9wCRtgncJ15P3bC+e4zZMu4Cq7d+WAJjXGW0uUkifhcatA==}
     engines: {node: 20 || >=22}
 
-  magic-string@0.30.17:
-    resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
-
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
@@ -3416,8 +3404,8 @@ packages:
   tailwind-merge@3.3.1:
     resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
 
-  tailwindcss@3.4.17:
-    resolution: {integrity: sha512-w33E2aCvSDP0tW9RZuNXadXlkHXqFzSkQew/aIa2i/Sj8fThxwovwlXHSPXTbAHwEIhBFXAedUhP2tueAKP8Og==}
+  tailwindcss@3.4.19:
+    resolution: {integrity: sha512-3ofp+LL8E+pK/JuPLPggVAIaEuhvIz4qNcf3nA1Xn2o/7fb7s/TYpHhwGDv1ZU3PkBluUVaF8PyCHcm48cKLWQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -4113,13 +4101,13 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 4.4.3
 
-  '@astrojs/tailwind@6.0.2(astro@5.18.1(@types/node@24.12.4)(jiti@1.21.7)(rollup@4.41.1)(typescript@5.9.3)(yaml@2.9.0))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@6.0.2(astro@5.18.1(@types/node@24.12.4)(jiti@1.21.7)(rollup@4.41.1)(typescript@5.9.3)(yaml@2.9.0))(tailwindcss@3.4.19)':
     dependencies:
       astro: 5.18.1(@types/node@24.12.4)(jiti@1.21.7)(rollup@4.41.1)(typescript@5.9.3)(yaml@2.9.0)
       autoprefixer: 10.4.21(postcss@8.5.3)
       postcss: 8.5.3
       postcss-load-config: 4.0.2(postcss@8.5.3)
-      tailwindcss: 3.4.17
+      tailwindcss: 3.4.19
     transitivePeerDependencies:
       - ts-node
 
@@ -4145,18 +4133,9 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.28.5': {}
 
-  '@babel/parser@7.27.3':
-    dependencies:
-      '@babel/types': 7.27.3
-
   '@babel/parser@7.29.3':
     dependencies:
       '@babel/types': 7.29.0
-
-  '@babel/types@7.27.3':
-    dependencies:
-      '@babel/helper-string-parser': 7.27.1
-      '@babel/helper-validator-identifier': 7.27.1
 
   '@babel/types@7.29.0':
     dependencies:
@@ -4570,7 +4549,7 @@ snapshots:
   '@jridgewell/gen-mapping@0.3.5':
     dependencies:
       '@jridgewell/set-array': 1.2.1
-      '@jridgewell/sourcemap-codec': 1.5.0
+      '@jridgewell/sourcemap-codec': 1.5.5
       '@jridgewell/trace-mapping': 0.3.25
 
   '@jridgewell/resolve-uri@3.1.2': {}
@@ -4584,7 +4563,7 @@ snapshots:
   '@jridgewell/trace-mapping@0.3.25':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
-      '@jridgewell/sourcemap-codec': 1.5.0
+      '@jridgewell/sourcemap-codec': 1.5.5
 
   '@mdx-js/mdx@3.1.1':
     dependencies:
@@ -4750,13 +4729,13 @@ snapshots:
       estraverse: 5.3.0
       picomatch: 4.0.3
 
-  '@tailwindcss/typography@0.5.16(tailwindcss@3.4.17)':
+  '@tailwindcss/typography@0.5.16(tailwindcss@3.4.19)':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.17
+      tailwindcss: 3.4.19
 
   '@types/acorn@4.0.6':
     dependencies:
@@ -5013,7 +4992,7 @@ snapshots:
 
   '@vue/compiler-core@3.5.15':
     dependencies:
-      '@babel/parser': 7.27.3
+      '@babel/parser': 7.29.3
       '@vue/shared': 3.5.15
       entities: 4.5.0
       estree-walker: 2.0.2
@@ -5026,13 +5005,13 @@ snapshots:
 
   '@vue/compiler-sfc@3.5.15':
     dependencies:
-      '@babel/parser': 7.27.3
+      '@babel/parser': 7.29.3
       '@vue/compiler-core': 3.5.15
       '@vue/compiler-dom': 3.5.15
       '@vue/compiler-ssr': 3.5.15
       '@vue/shared': 3.5.15
       estree-walker: 2.0.2
-      magic-string: 0.30.17
+      magic-string: 0.30.21
       postcss: 8.5.3
       source-map-js: 1.2.1
 
@@ -6763,10 +6742,6 @@ snapshots:
 
   lru-cache@11.4.0: {}
 
-  magic-string@0.30.17:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.0
-
   magic-string@0.30.21:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -8069,7 +8044,7 @@ snapshots:
 
   tailwind-merge@3.3.1: {}
 
-  tailwindcss@3.4.17:
+  tailwindcss@3.4.19:
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2

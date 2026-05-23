@@ -58,8 +58,8 @@ importers:
         specifier: ^0.34.2
         version: 0.34.2
       tailwind-merge:
-        specifier: ^3.3.1
-        version: 3.3.1
+        specifier: ^3.6.0
+        version: 3.6.0
       tailwindcss:
         specifier: ^4.3.0
         version: 4.3.0
@@ -3404,8 +3404,8 @@ packages:
     resolution: {integrity: sha512-2pR2ubZSV64f/vqm9eLPz/KOvR9Dm+Co/5ChLgeHl0yEDRc6h5hXHoxEQH8Y5Ljycozd3p1k5TTSVdzYGkPvLw==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
-  tailwind-merge@3.3.1:
-    resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
+  tailwind-merge@3.6.0:
+    resolution: {integrity: sha512-uxL7qAVQriqRQPAyK3pj66VqskWqoZ37PW94jwOTwNfq/z9oyu1V+eqrZqtR2+fCiXdYOZe/Modt8GtvqNzu+w==}
 
   tailwindcss@4.3.0:
     resolution: {integrity: sha512-y6nxMGB1nMW9R6k96e5gdIFzcfL/gTJRNaqGes1YvkLnPVXzWgbqFF2yLC0T8G774n24cx3Pe8XrKoniCOAH+Q==}
@@ -7959,7 +7959,7 @@ snapshots:
     dependencies:
       '@pkgr/core': 0.2.4
 
-  tailwind-merge@3.3.1: {}
+  tailwind-merge@3.6.0: {}
 
   tailwindcss@4.3.0: {}
 

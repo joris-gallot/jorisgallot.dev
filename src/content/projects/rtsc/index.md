@@ -7,7 +7,7 @@ repoURL: "https://github.com/joris-gallot/rtsc"
 
 ## Project Overview
 
-**rtsc** is my experimental TypeScript-to-JavaScript compiler written in Rust. Unlike my other projects, this is not a production-ready library but rather a personal exploration into compiler design and implementation—my first attempt at building a compiler from scratch.
+**rtsc** is my experimental TypeScript-to-JavaScript compiler written in Rust. Unlike my other projects, this is not a production-ready library but rather a personal exploration into compiler design and implementation: my first attempt at building a compiler from scratch.
 
 This project allowed me to dive deep into:
 

@@ -5,12 +5,12 @@ date: "Jun 1 2025"
 repoURL: "https://github.com/joris-gallot/typestep"
 ---
 
-Migrating a JavaScript codebase to TypeScript can be daunting — especially when working with large or legacy projects, running `tsc` for the first time can flood your terminal with hundreds of type errors.
-The ideal way forward? An **incremental migration strategy** — gradually introducing type safety without blocking development.
+Migrating a JavaScript codebase to TypeScript can be daunting, especially when working with large or legacy projects, running `tsc` for the first time can flood your terminal with hundreds of type errors.
+The ideal way forward? An **incremental migration strategy**: gradually introducing type safety without blocking development.
 
 This is where **Typestep** comes in.
 
-> **Typestep** is a CLI tool designed to help teams progressively adopt TypeScript by letting you track, isolate, and ignore specific errors or files — and then reduce them step by step.
+> **Typestep** is a CLI tool designed to help teams progressively adopt TypeScript by letting you track, isolate, and ignore specific errors or files, and then reduce them step by step.
 
 ---
 

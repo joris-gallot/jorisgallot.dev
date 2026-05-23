@@ -7,7 +7,7 @@ repoURL: "https://github.com/joris-gallot/typestep"
 
 ## Project Overview
 
-**Typestep** is a CLI tool designed to help teams progressively adopt TypeScript in existing JavaScript projects. When migrating large codebases, running `tsc` for the first time can reveal hundreds of type errors—far too many to fix at once without disrupting development.
+**Typestep** is a CLI tool designed to help teams progressively adopt TypeScript in existing JavaScript projects. When migrating large codebases, running `tsc` for the first time can reveal hundreds of type errors, far too many to fix at once without disrupting development.
 
 Typestep solves this problem by enabling an **incremental migration strategy**:
 

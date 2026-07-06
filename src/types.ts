@@ -16,9 +16,12 @@ export type Socials = {
 }[]
 
 export interface Product {
+  key: string
   name: string
   tagline: string
   href: string
+  repoURL: string
+  demoURL?: string
   tags: string[]
   note?: string
 }

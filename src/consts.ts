@@ -24,18 +24,23 @@ export const PROJECTS = {
 
 export const PRODUCTS: Product[] = [
   {
+    key: 'reviu',
     name: 'Reviu',
     tagline: 'Keyboard-first desktop Git client. Review your AI agent\'s code before you push, then take it to merge.',
     href: 'https://reviu.dev',
+    repoURL: 'https://github.com/reviu-dev/reviu',
     tags: ['Rust', 'GPUI', 'Git'],
     note: 'Free + Pro',
   },
   {
+    key: 'kinora',
     name: 'Kinora',
     tagline: 'A dashboard for your Playwright tests across projects and over time, with an embedded trace viewer.',
     href: 'https://kinora.dev',
+    repoURL: 'https://github.com/Kinora-dev/kinora',
+    demoURL: 'https://demo.kinora.dev',
     tags: ['TypeScript', 'Playwright'],
-    note: 'Cloud + live demo',
+    note: 'Cloud',
   },
 ]
 

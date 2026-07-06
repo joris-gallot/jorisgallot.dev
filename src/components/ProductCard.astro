@@ -1,0 +1,48 @@
+---
+import type { Product } from '@types'
+
+type Props = {
+  product: Product
+}
+
+const { product } = Astro.props;
+---
+
+<a
+  href={product.href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="relative group flex flex-col gap-3 py-4 px-4 pr-10 rounded-lg border border-black/15 text-gray-700 dark:text-white/90 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out"
+>
+  <div class="flex items-center gap-2">
+    <span class="font-semibold text-black dark:text-white">
+      {product.name}
+    </span>
+    {product.note && (
+      <span class="text-xs px-1.5 py-0.5 rounded-full border border-black/15 dark:border-white/20 opacity-80">
+        {product.note}
+      </span>
+    )}
+  </div>
+
+  <p class="text-sm">
+    {product.tagline}
+  </p>
+
+  <ul class="flex flex-wrap gap-1.5">
+    {product.tags.map(tag => (
+      <li class="text-xs px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/10">
+        {tag}
+      </li>
+    ))}
+  </ul>
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    class="absolute top-4 right-3 size-4 stroke-2 fill-none stroke-current opacity-70 group-hover:opacity-100 transition-all duration-300 ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+  >
+    <line x1="7" y1="17" x2="17" y2="7" />
+    <polyline points="7 7 17 7 17 17" />
+  </svg>
+</a>

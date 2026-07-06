@@ -1,0 +1,144 @@
+---
+import { SITE, UMAMI } from '@consts'
+import '@fontsource/ibm-plex-mono/400.css'
+import '@fontsource/ibm-plex-mono/500.css'
+import '@fontsource/ibm-plex-mono/600.css'
+import '@styles/global.css'
+
+interface StructuredData {
+  [key: string]: unknown
+}
+
+interface Props {
+  title?: string
+  description?: string
+  image?: string
+  type?: 'website' | 'article'
+  robots?: string
+  structuredData?: StructuredData | StructuredData[]
+}
+
+const {
+  title,
+  description = SITE.description,
+  image = '/og.png',
+  type = 'website',
+  robots = 'index,follow',
+  structuredData = [],
+} = Astro.props
+
+const site = Astro.site ?? new URL('https://jorisgallot.dev')
+const pageTitle = title ? `${title} · ${SITE.name}` : SITE.title
+const canonicalURL = new URL(Astro.url.pathname, site).toString()
+const imageURL = new URL(image, site).toString()
+const structuredDataItems = (Array.isArray(structuredData) ? structuredData : [structuredData])
+  .filter(item => Object.keys(item).length > 0)
+
+const isProd = import.meta.env.MODE === 'production'
+
+const now = new Date()
+const lastLogin = `${now.toDateString().slice(0, -5)} ${now.toTimeString().slice(0, 8)} ${now.getFullYear()}`
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="author" content={SITE.name} />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#010409" />
+    <script is:inline>
+      const storedTheme = localStorage.getItem('theme')
+      if (storedTheme === 'light' || storedTheme === 'dark')
+        document.documentElement.dataset.theme = storedTheme
+    </script>
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.name} href={new URL('/rss.xml', site).toString()} />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:alt" content={SITE.title} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+    {structuredDataItems.map(item => (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />
+    ))}
+    {isProd && (
+      <script
+        is:inline
+        defer
+        src={UMAMI.src}
+        data-website-id={UMAMI.websiteId}
+      />
+    )}
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only bg-soft px-4 py-3 text-xs focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50"
+    >
+      Skip to content
+    </a>
+    <main id="main" class="mx-auto max-w-[62rem] px-5 py-9 md:py-12">
+      <div class="mb-9 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+        <p class="text-dim">Last login: {lastLogin} on ttys000</p>
+        <button
+          id="theme-toggle"
+          type="button"
+          class="cursor-pointer text-dim transition-colors hover:text-fg"
+          aria-label="Switch theme"
+          data-umami-event="theme-toggle"
+        >
+          [theme: system]
+        </button>
+      </div>
+      <slot />
+    </main>
+    <script>
+      const button = document.getElementById('theme-toggle')
+
+      if (button) {
+        const themes = ['system', 'dark', 'light'] as const
+
+        const currentTheme = () => {
+          const stored = localStorage.getItem('theme')
+          return stored === 'light' || stored === 'dark' ? stored : 'system'
+        }
+
+        const renderLabel = () => {
+          button.textContent = `[theme: ${currentTheme()}]`
+        }
+
+        button.addEventListener('click', () => {
+          const next = themes[(themes.indexOf(currentTheme()) + 1) % themes.length]
+          if (next === 'system') {
+            localStorage.removeItem('theme')
+            delete document.documentElement.dataset.theme
+          }
+          else {
+            localStorage.setItem('theme', next)
+            document.documentElement.dataset.theme = next
+          }
+          renderLabel()
+        })
+
+        renderLabel()
+      }
+    </script>
+  </body>
+</html>

@@ -1,57 +1,27 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import ArrowCard from '@components/ArrowCard.astro'
-import Container from '@components/Container.astro'
+import Cmd from '@components/Cmd.astro'
+import TermRow from '@components/TermRow.astro'
 import { BLOG } from '@consts'
-import PageLayout from '@layouts/PageLayout.astro'
+import Layout from '@layouts/Layout.astro'
+import { isoDate } from '@lib/date'
 import { getCollection } from 'astro:content'
 
-const data = (await getCollection('blog'))
+const posts = (await getCollection('blog'))
   .filter(post => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-
-type Acc = {
-  [year: string]: CollectionEntry<'blog'>[]
-}
-
-const posts = data.reduce((acc: Acc, post) => {
-    const year = post.data.date.getFullYear().toString()
-    if (!acc[year]) {
-      acc[year] = []
-    }
-    acc[year].push(post)
-    return acc
-  }, {})
-
-const years = Object.keys(posts).sort((a, b) => Number.parseInt(b) - Number.parseInt(a));
 ---
 
-<PageLayout title={BLOG.title} description={BLOG.description}>
-  <Container>
-    <div class="space-y-10">
-      <div class="animate font-semibold text-black dark:text-white">
-        Blog
-      </div>
-      <div class="space-y-4">
-        {years.map(year => (
-          <section class="animate space-y-4">
-            <div class="font-semibold text-black dark:text-white">
-              {year}
-            </div>
-            <div>
-              <ul class="flex flex-col gap-4">
-                {
-                  posts[year].map(post => (
-                    <li>
-                      <ArrowCard entry={post} />
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
-          </section>
-        ))}
-      </div>
-    </div>
-  </Container>
-</PageLayout>
+<Layout title={BLOG.title} description={BLOG.description}>
+  <p><a href="/" class="text-dim hover:text-blue hover:underline">← cd ~</a></p>
+  <Cmd cmd="ls -t writing/" heading />
+  <div class="term-out seq-out" style="--seq: 0">
+    {posts.map(post => (
+      <TermRow
+        href={`/blog/${post.id}`}
+        title={post.data.title}
+        description={post.data.description}
+        meta={isoDate(post.data.date)}
+      />
+    ))}
+  </div>
+</Layout>

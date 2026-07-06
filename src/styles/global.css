@@ -1,81 +1,242 @@
 @import 'tailwindcss';
-@plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* GitHub Light (primer primitives) */
+:root {
+  --t-back: #fff;
+  --t-soft: #f6f8fa;
+  --t-fg: #1f2328;
+  --t-bright: #1f2328;
+  --t-dim: #656d76;
+  --t-line: #d0d7de;
+  --t-blue: #0969da;
+  --t-red: #cf222e;
+  --t-select: rgb(84 174 255 / 40%);
+}
+
+/* GitHub Dark Default (primer primitives) */
+:root[data-theme='dark'] {
+  --t-back: #010409;
+  --t-soft: #0d1117;
+  --t-fg: #e6edf3;
+  --t-bright: #f0f6fc;
+  --t-dim: #7d8590;
+  --t-line: #21262d;
+  --t-blue: #58a6ff;
+  --t-red: #ff7b72;
+  --t-select: rgb(56 139 253 / 40%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --t-back: #010409;
+    --t-soft: #0d1117;
+    --t-fg: #e6edf3;
+    --t-bright: #f0f6fc;
+    --t-dim: #7d8590;
+    --t-line: #21262d;
+    --t-blue: #58a6ff;
+    --t-red: #ff7b72;
+    --t-select: rgb(56 139 253 / 40%);
+  }
+}
+
+@theme inline {
+  --color-back: var(--t-back);
+  --color-soft: var(--t-soft);
+  --color-fg: var(--t-fg);
+  --color-bright: var(--t-bright);
+  --color-dim: var(--t-dim);
+  --color-line: var(--t-line);
+  --color-blue: var(--t-blue);
+  --color-red: var(--t-red);
+}
 
 @theme {
-  --font-sans:
-    'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
-  --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, sfmono-regular, menlo, monospace;
 }
 
-html {
-  overflow-y: scroll;
-  color-scheme: light;
-}
-
-html.dark {
-  color-scheme: dark;
-}
-
-html,
-body {
-  @apply size-full;
-}
-
-body {
-  @apply font-sans antialiased;
-  @apply flex flex-col;
-  @apply bg-white dark:bg-black;
-  @apply text-black/50 dark:text-white/75;
-}
-
-header {
-  @apply fixed top-0 left-0 right-0 z-50 py-5;
-  @apply bg-white/75 dark:bg-black/25;
-  @apply backdrop-blur-sm saturate-200;
-}
-
-main {
-  @apply flex-1 py-32;
-}
-
-footer {
-  @apply py-5 text-sm;
-}
-
-article {
-  @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
-  @apply prose-headings:font-semibold prose-p:font-serif;
-  @apply prose-headings:text-black prose-headings:dark:text-white;
-}
-
-@layer utilities {
-  article a {
-    @apply font-sans text-current underline underline-offset-2;
-    @apply decoration-black/15 dark:decoration-white/30;
-    @apply transition-colors duration-300 ease-in-out;
+/* dark: variant must follow the 3-state theme, not only the OS preference */
+@custom-variant dark {
+  :root[data-theme='dark'] & {
+    @slot;
   }
-  article a:hover {
-    @apply text-black dark:text-white;
-    @apply decoration-black/25 dark:decoration-white/50;
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) & {
+      @slot;
+    }
   }
 }
 
-.animate {
-  @apply opacity-0 translate-y-3;
-  @apply transition-all duration-700 ease-out;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-back font-mono text-[13.5px] leading-[1.7] text-fg antialiased;
+  }
+
+  ::selection {
+    background: var(--t-select);
+  }
+
+  :focus-visible {
+    outline: 1.5px solid var(--t-blue);
+    outline-offset: 2px;
+  }
 }
 
-.animate.show {
-  @apply opacity-100 translate-y-0;
+/* Command output block */
+@utility term-out {
+  @apply border-l border-line pl-4;
 }
 
-html #back-to-top {
-  @apply opacity-0 pointer-events-none;
+/* Session replay: commands type in, outputs follow (--seq = section index) */
+@media (prefers-reduced-motion: no-preference) {
+  .seq-cmd {
+    opacity: 0;
+    animation: seq-appear 0.01s linear forwards;
+    animation-delay: calc(var(--seq, 0) * 0.45s);
+  }
+
+  .cmd-type {
+    display: inline-block;
+    clip-path: inset(0 100% 0 0);
+    animation: cmd-typing 0.3s steps(16, end) forwards;
+    animation-delay: calc(var(--seq, 0) * 0.45s);
+  }
+
+  .seq-out {
+    opacity: 0;
+    animation: seq-appear 0.15s ease-out forwards;
+    animation-delay: calc(var(--seq, 0) * 0.45s + 0.3s);
+  }
+
+  .cursor-blink {
+    animation: cursor-blink 1.1s step-end infinite;
+    animation-delay: calc(var(--seq, 0) * 0.45s + 0.3s);
+  }
 }
 
-html.scrolled #back-to-top {
-  @apply opacity-100 pointer-events-auto;
+@keyframes cmd-typing {
+  to {
+    clip-path: inset(0 -2% 0 0);
+  }
+}
+
+@keyframes seq-appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Rendered markdown, glow-style */
+.prose-term :is(h2, h3, h4) {
+  @apply mb-3 mt-8 font-medium text-bright;
+}
+
+.prose-term h2::before {
+  content: '## ';
+  color: var(--t-blue);
+}
+
+.prose-term h3::before {
+  content: '### ';
+  color: var(--t-blue);
+}
+
+.prose-term h4::before {
+  content: '#### ';
+  color: var(--t-blue);
+}
+
+.prose-term p {
+  @apply my-3.5;
+}
+
+.prose-term a {
+  @apply text-blue underline decoration-1 underline-offset-2;
+}
+
+.prose-term strong {
+  @apply font-semibold text-bright;
+}
+
+.prose-term ul {
+  @apply my-3.5 list-disc pl-5 marker:text-dim;
+}
+
+.prose-term ol {
+  @apply my-3.5 list-decimal pl-5 marker:text-dim;
+}
+
+.prose-term li {
+  @apply my-1;
+}
+
+.prose-term blockquote {
+  @apply my-4 border-l-2 border-line pl-4 text-dim;
+}
+
+.prose-term hr {
+  @apply my-7 border-line;
+}
+
+.prose-term :is(code):not(pre code) {
+  @apply rounded-sm bg-soft px-1 py-0.5 text-[0.9em] text-fg;
+}
+
+.prose-term table {
+  @apply my-4 w-full border-collapse text-left;
+}
+
+.prose-term :is(th, td) {
+  @apply border border-line px-3 py-1.5;
+}
+
+.prose-term th {
+  @apply text-bright;
+}
+
+/* Shiki dual themes (defaultColor: false) */
+.astro-code,
+.astro-code span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg) !important;
+}
+
+:root[data-theme='dark'] .astro-code,
+:root[data-theme='dark'] .astro-code span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .astro-code,
+  :root:not([data-theme='light']) .astro-code span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+.astro-code {
+  @apply my-4 rounded-md border border-line p-4 text-[12.5px] leading-relaxed;
 }

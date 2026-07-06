@@ -1,115 +1,27 @@
 ---
-import ArrowCard from '@components/ArrowCard.astro'
-import Container from '@components/Container.astro'
-import Link from '@components/Link.astro'
-import ProductCard from '@components/ProductCard.astro'
-import { HOME, PRODUCTS, SITE, SOCIALS } from '@consts'
-import PageLayout from '@layouts/PageLayout.astro'
-import { getCollection } from 'astro:content'
+import TerminalHome from '@components/TerminalHome.astro'
+import { SITE, SOCIALS } from '@consts'
+import Layout from '@layouts/Layout.astro'
 
-const blog = (await getCollection('blog'))
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, SITE.numPostsOnHomePage)
-
-const projects = (await getCollection('projects'))
-  .filter(project => !project.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, SITE.numProjectsOnHomePage)
-
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    'name': SITE.name,
+    'url': Astro.site?.toString(),
+    'email': `mailto:${SITE.email}`,
+    'jobTitle': 'Software engineer',
+    'sameAs': SOCIALS.map(social => social.href),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    'name': SITE.name,
+    'url': Astro.site?.toString(),
+  },
+]
 ---
 
-<PageLayout title={HOME.title} description={HOME.description}>
-  <Container>
-    <h4 class="animate font-semibold text-black dark:text-white">
-      Hi, I'm Joris <span class="text-xl">👋</span>
-    </h4>
-    <div class="space-y-16">
-      <section>
-        <article class="space-y-4">
-          <p class="animate">
-            I'm a French fullstack developer working at <Link href="https://365talents.com/en/">365Talents</Link>, mainly with TypeScript and currently exploring Rust.
-            On the side I build products, <Link href="https://reviu.dev" external>Reviu</Link> and <Link href="https://kinora.dev" external>Kinora</Link>, and a handful of open-source tools.
-            This site is where I share them and write about web development and developer experience.
-          </p>
-        </article>
-      </section>
-
-      <section class="animate space-y-6">
-        <h5 class="font-semibold text-black dark:text-white">
-          Products
-        </h5>
-        <ul class="flex flex-col gap-4">
-          {PRODUCTS.map(product => (
-            <li>
-              <ProductCard product={product} />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Open source
-          </h5>
-          <Link href="/projects">
-            See all projects
-          </Link>
-        </div>
-        <ul class="flex flex-col gap-4">
-          {projects.map(project => (
-            <li>
-              <ArrowCard entry={project} />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Latest posts
-          </h5>
-          <Link href="/blog">
-            See all posts
-          </Link>
-        </div>
-        <ul class="flex flex-col gap-4">
-          {blog.map(post => (
-            <li>
-              <ArrowCard entry={post} />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-4">
-        <h5 class="font-semibold text-black dark:text-white">
-          Let's Connect
-        </h5>
-        <article>
-          <p>
-            If you want to get in touch with me about something or just to say hi,
-            reach out on social media or send me an email.
-          </p>
-        </article>
-        <ul class="flex flex-wrap gap-2">
-          {SOCIALS.map(SOCIAL => (
-            <li class="flex gap-x-2 text-nowrap">
-              <Link href={SOCIAL.href} external aria-label={`${SITE.name} on ${SOCIAL.name}`}>
-                {SOCIAL.name}
-              </Link>
-              /
-            </li>
-          ))}
-          <li class="line-clamp-1">
-            <Link href={`mailto:${SITE.email}`} aria-label={`Email ${SITE.name}`}>
-              {SITE.email}
-            </Link>
-          </li>
-        </ul>
-      </section>
-    </div>
-  </Container>
-</PageLayout>
+<Layout structuredData={structuredData}>
+  <TerminalHome />
+</Layout>

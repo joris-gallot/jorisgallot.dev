@@ -1,30 +1,27 @@
 ---
-import ArrowCard from '@components/ArrowCard.astro'
-import Container from '@components/Container.astro'
+import Cmd from '@components/Cmd.astro'
+import TermRow from '@components/TermRow.astro'
 import { PROJECTS } from '@consts'
-import PageLayout from '@layouts/PageLayout.astro'
+import Layout from '@layouts/Layout.astro'
+import { isoDate } from '@lib/date'
 import { getCollection } from 'astro:content'
 
 const projects = (await getCollection('projects'))
   .filter(project => !project.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 ---
 
-<PageLayout title={PROJECTS.title} description={PROJECTS.description}>
-  <Container>
-    <div class="space-y-10">
-      <div class="animate font-semibold text-black dark:text-white">
-        Projects
-      </div>
-      <ul class="animate flex flex-col gap-4">
-        {
-          projects.map(project => (
-            <li>
-              <ArrowCard entry={project} />
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </Container>
-</PageLayout>
+<Layout title={PROJECTS.title} description={PROJECTS.description}>
+  <p><a href="/" class="text-dim hover:text-blue hover:underline">← cd ~</a></p>
+  <Cmd cmd="ls -t open-source/" heading />
+  <div class="term-out seq-out" style="--seq: 0">
+    {projects.map(project => (
+      <TermRow
+        href={`/projects/${project.id}`}
+        title={project.data.title}
+        description={project.data.description}
+        meta={isoDate(project.data.date)}
+      />
+    ))}
+  </div>
+</Layout>

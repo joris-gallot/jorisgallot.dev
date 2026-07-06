@@ -1,0 +1,135 @@
+---
+import type { ImageMetadata } from 'astro'
+import Cmd from '@components/Cmd.astro'
+import TermRow from '@components/TermRow.astro'
+import { PRODUCTS, SITE } from '@consts'
+import { isoDate } from '@lib/date'
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+import avatar from '../images/avatar.png'
+
+const shots = import.meta.glob<{ default: ImageMetadata }>('../images/products/*.png', { eager: true })
+
+const projects = (await getCollection('projects'))
+  .filter(project => !project.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+---
+
+<Cmd cmd="whoami" index={0} />
+<div class="term-out seq-out" style="--seq: 0">
+  <div class="flex items-start gap-4">
+    <Image
+      src={avatar}
+      alt="Joris Gallot"
+      width={80}
+      height={80}
+      densities={[1, 2]}
+      class="mt-1.5 hidden shrink-0 rounded-md border border-line sm:block"
+    />
+    <div class="min-w-0">
+      <h1 class="text-2xl font-medium text-bright">Joris Gallot</h1>
+      <p>Independent software engineer · France</p>
+      <p class="mt-2">
+        Building developer tools. Products, open source, freelance missions
+        in TypeScript, Vue and Rust.
+      </p>
+      <p class="mt-3">
+        {SITE.availability} →
+        <a href={`mailto:${SITE.email}`} class="text-blue [overflow-wrap:anywhere] hover:underline" data-umami-event="hero-email">{SITE.email}</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<Cmd cmd="ls products/" index={1} id="products" heading />
+<div class="term-out seq-out" style="--seq: 1">
+  {PRODUCTS.map(product => (
+    <div class="grid grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-1 py-1.5 md:grid-cols-[10rem_12rem_1fr_auto] md:gap-x-5">
+      <a
+        href={product.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-blue hover:underline"
+        data-umami-event={`product-${product.key}-name`}
+      >
+        {product.key}/
+      </a>
+      <span class="text-dim md:whitespace-nowrap">{product.specs[0].value}</span>
+      <span class="col-span-2 md:col-span-1">{product.tagline}</span>
+      <span class="col-span-2 flex gap-3 md:col-span-1">
+        <a href={product.href} target="_blank" rel="noopener noreferrer" class="text-blue hover:underline" data-umami-event={`product-${product.key}-site`}>[site]</a>
+        {product.demoURL && <a href={product.demoURL} target="_blank" rel="noopener noreferrer" class="text-blue hover:underline" data-umami-event={`product-${product.key}-demo`}>[demo]</a>}
+        {product.repoURL && <a href={product.repoURL} target="_blank" rel="noopener noreferrer" class="text-blue hover:underline" data-umami-event={`product-${product.key}-repo`}>[src]</a>}
+      </span>
+      {shots[`../images/products/${product.key}-light.png`] && (
+        <a
+          href={product.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          tabindex="-1"
+          aria-hidden="true"
+          class="col-span-2 mb-4 mt-2 block max-w-3xl md:col-span-4"
+          data-umami-event={`product-${product.key}-screenshot`}
+        >
+          <Image
+            src={shots[`../images/products/${product.key}-light.png`].default}
+            alt={`${product.name} screenshot`}
+            class="block w-full rounded-md border border-line dark:hidden"
+            widths={[640, 960, 1280, 1536]}
+            sizes="(min-width: 900px) 768px, 100vw"
+          />
+          <Image
+            src={shots[`../images/products/${product.key}-dark.png`].default}
+            alt={`${product.name} screenshot`}
+            class="hidden w-full rounded-md border border-line dark:block"
+            widths={[640, 960, 1280, 1536]}
+            sizes="(min-width: 900px) 768px, 100vw"
+          />
+        </a>
+      )}
+    </div>
+  ))}
+</div>
+
+<Cmd cmd="ls -t open-source/" index={2} id="open-source" heading />
+<div class="term-out seq-out" style="--seq: 2">
+  {projects.map(project => (
+    <TermRow
+      href={`/projects/${project.id}`}
+      title={project.data.title}
+      description={project.data.description}
+      meta={isoDate(project.data.date)}
+    />
+  ))}
+</div>
+
+<Cmd cmd="ls -t writing/" index={3} id="writing" heading />
+<div class="term-out seq-out" style="--seq: 3">
+  {posts.map(post => (
+    <TermRow
+      href={`/blog/${post.id}`}
+      title={post.data.title}
+      description={post.data.description}
+      meta={isoDate(post.data.date)}
+    />
+  ))}
+</div>
+
+<Cmd cmd="cat contact.txt" index={4} id="contact" heading />
+<div class="term-out seq-out" style="--seq: 4">
+  <p>
+    mail: <a href={`mailto:${SITE.email}`} class="text-blue hover:underline" data-umami-event="contact-email">{SITE.email}</a><br />
+    github: <a href="https://github.com/joris-gallot" target="_blank" rel="noopener noreferrer" class="text-blue hover:underline" data-umami-event="contact-github">github.com/joris-gallot</a><br />
+    rss: <a href="/rss.xml" class="text-blue hover:underline">/rss.xml</a>
+  </p>
+  <p class="mt-3 text-dim"># © {new Date().getFullYear()} Joris Gallot · Built with Astro</p>
+</div>
+
+<p class="seq-out mt-10 text-bright" style="--seq: 5" aria-hidden="true">
+  <span class="text-dim">joris@dev:~$</span>
+  <span class="cursor-blink" style="--seq: 5">█</span>
+</p>

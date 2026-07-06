@@ -1,0 +1,24 @@
+---
+interface Props {
+  href: string
+  title: string
+  description: string
+  meta: string
+  external?: boolean
+}
+
+const { href, title, description, meta, external = false } = Astro.props
+---
+
+<div class="grid grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-1 py-1.5 md:grid-cols-[14.5rem_6.5rem_1fr] md:gap-x-5">
+  <a
+    href={href}
+    class="text-blue [overflow-wrap:anywhere] hover:underline"
+    target={external ? '_blank' : undefined}
+    rel={external ? 'noopener noreferrer' : undefined}
+  >
+    {title}
+  </a>
+  <span class="text-dim md:order-none">{meta}</span>
+  <span class="col-span-2 md:col-span-1">{description}</span>
+</div>

@@ -1,8 +1,9 @@
 export interface Site {
   name: string
+  title: string
+  description: string
   email: string
-  numPostsOnHomePage: number
-  numProjectsOnHomePage: number
+  availability: string
 }
 
 export interface Metadata {
@@ -15,13 +16,17 @@ export type Socials = {
   href: string
 }[]
 
+export interface ProductSpec {
+  label: string
+  value: string
+}
+
 export interface Product {
   key: string
   name: string
   tagline: string
   href: string
-  repoURL: string
+  repoURL?: string
   demoURL?: string
-  tags: string[]
-  note?: string
+  specs: ProductSpec[]
 }

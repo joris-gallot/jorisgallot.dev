@@ -2,24 +2,25 @@ import type { Metadata, Product, Site, Socials } from '@types'
 
 export const SITE: Site = {
   name: 'Joris Gallot',
+  title: 'Joris Gallot · Software engineer',
+  description: 'Independent software engineer building developer tools: Reviu, Kinora and open-source projects. Available for freelance work in TypeScript, Vue and Rust.',
   email: 'joris.gallot18@gmail.com',
-  numPostsOnHomePage: 3,
-  numProjectsOnHomePage: 3,
+  availability: 'Available for freelance work',
 }
 
-export const HOME = {
-  title: 'Home',
-  description: 'Joris\'s personal website, showcasing his products, open-source projects, and articles.',
-} as const satisfies Metadata
+export const UMAMI = {
+  src: 'https://analytics.jorisgallot.dev/j.js',
+  websiteId: '1e174065-2889-4ddd-a3ab-17c88bdbefa4',
+}
 
 export const BLOG = {
-  title: 'Blog',
-  description: 'A collection of articles on topics I am passionate about.',
+  title: 'Writing',
+  description: 'Notes on building developer tools, TypeScript and Rust.',
 } as const satisfies Metadata
 
 export const PROJECTS = {
-  title: 'Projects',
-  description: 'A collection of my projects, with links to repositories and demos.',
+  title: 'Open source',
+  description: 'Open-source projects by Joris Gallot: developer tooling in TypeScript and Rust.',
 } as const satisfies Metadata
 
 export const PRODUCTS: Product[] = [
@@ -29,8 +30,11 @@ export const PRODUCTS: Product[] = [
     tagline: 'Keyboard-first desktop Git client. Review your AI agent\'s code before you push, then take it to merge.',
     href: 'https://reviu.dev',
     repoURL: 'https://github.com/reviu-dev/reviu',
-    tags: ['Rust', 'GPUI', 'Git'],
-    note: 'Free + Pro',
+    specs: [
+      { label: 'Stack', value: 'Rust · GPUI' },
+      { label: 'Platform', value: 'macOS' },
+      { label: 'Model', value: 'Free + Pro' },
+    ],
   },
   {
     key: 'kinora',
@@ -39,14 +43,17 @@ export const PRODUCTS: Product[] = [
     href: 'https://kinora.dev',
     repoURL: 'https://github.com/Kinora-dev/kinora',
     demoURL: 'https://demo.kinora.dev',
-    tags: ['TypeScript', 'Playwright'],
-    note: 'Cloud',
+    specs: [
+      { label: 'Stack', value: 'TypeScript · Playwright' },
+      { label: 'Platform', value: 'Web' },
+      { label: 'Model', value: 'Cloud' },
+    ],
   },
 ]
 
 export const SOCIALS: Socials = [
   {
-    name: 'github',
+    name: 'GitHub',
     href: 'https://github.com/joris-gallot',
   },
 ]

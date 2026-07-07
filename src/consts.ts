@@ -4,7 +4,7 @@ export const SITE: Site = {
   name: 'Joris Gallot',
   title: 'Joris Gallot · Software engineer',
   description: 'Independent software engineer building developer tools: Reviu, Kinora and open-source projects. Available for freelance work in TypeScript, Vue and Rust.',
-  email: 'joris.gallot18@gmail.com',
+  email: 'contact@jorisgallot.dev',
   availability: 'Available for freelance work',
 }
 

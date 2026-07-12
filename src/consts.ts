@@ -3,7 +3,7 @@ import type { Metadata, Product, Site, Socials } from '@types'
 export const SITE: Site = {
   name: 'Joris Gallot',
   title: 'Joris Gallot · Software engineer',
-  description: 'Independent software engineer building developer tools: Reviu, Kinora and open-source projects. Available for freelance work in TypeScript, Vue and Rust.',
+  description: 'Independent software engineer building developer tools and SaaS products. Creator of Reviu and Kinora. Available for freelance work in TypeScript, Vue and Rust.',
   email: 'contact@jorisgallot.dev',
   availability: 'Available for freelance work',
 }

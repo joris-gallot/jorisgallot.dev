@@ -37,7 +37,7 @@ const posts = (await getCollection('blog'))
         Building developer tools and SaaS products. Available for freelance work in TypeScript, Vue and Rust.
       </p>
       <p class="mt-3">
-        {SITE.availability} →
+        {SITE.availability} →{' '}
         <a href={`mailto:${SITE.email}`} class="text-blue [overflow-wrap:anywhere] hover:underline" data-umami-event="hero-email">{SITE.email}</a>
       </p>
     </div>
@@ -129,6 +129,6 @@ const posts = (await getCollection('blog'))
 </div>
 
 <p class="seq-out mt-10 text-bright" style="--seq: 5" aria-hidden="true">
-  <span class="text-dim">joris@dev:~$</span>
+  <span class="text-dim">joris@dev:~$</span>{' '}
   <span class="cursor-blink" style="--seq: 5">█</span>
 </p>

@@ -12,7 +12,6 @@
         "@antfu/eslint-config",
         "eslint-plugin-astro",
         "eslint-plugin-format",
-        "eslint-plugin-jsx-a11y",
         "typescript"
       ],
       "matchUpdateTypes": ["minor", "patch"],

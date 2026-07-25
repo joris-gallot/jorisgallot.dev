@@ -1,3 +1,16 @@
+shellEmulator: true
+
+trustPolicy: no-downgrade
+
+# @astrojs/check pins chokidar ^4.0.3 (last 4.x), published before chokidar moved to trusted publishing
+trustPolicyExclude:
+  - chokidar@4.0.3
+
 allowBuilds:
   esbuild: true
   sharp: true
+
+# eslint-plugin-astro hard-peers jsx-a11y, whose eslint range stops at 9
+peerDependencyRules:
+  allowedVersions:
+    eslint-plugin-jsx-a11y>eslint: '10'

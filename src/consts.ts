@@ -27,12 +27,12 @@ export const PRODUCTS: Product[] = [
   {
     key: 'reviu',
     name: 'Reviu',
-    tagline: 'Keyboard-first desktop Git client. Review your AI agent\'s code before you push, then take it to merge.',
+    tagline: 'The review app for code your agent writes. Watch sessions, review every diff, send comments back, then ship with real Git.',
     href: 'https://reviu.dev',
     repoURL: 'https://github.com/reviu-dev/reviu',
     specs: [
       { label: 'Stack', value: 'Rust · GPUI' },
-      { label: 'Platform', value: 'macOS' },
+      { label: 'Platform', value: 'macOS · Linux · Windows' },
       { label: 'Model', value: 'Free + Pro' },
     ],
   },

@@ -9,7 +9,7 @@ export const SITE: Site = {
 }
 
 export const UMAMI = {
-  src: 'https://analytics.jorisgallot.dev/j.js',
+  src: 'https://sonar.jorisgallot.dev/script.js',
   websiteId: '1e174065-2889-4ddd-a3ab-17c88bdbefa4',
 }
 

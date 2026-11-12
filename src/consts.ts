@@ -3,7 +3,7 @@ import type { Metadata, Product, Site, Socials } from '@types'
 export const SITE: Site = {
   name: 'Joris Gallot',
   title: 'Joris Gallot · Software engineer',
-  description: 'Independent software engineer building apps and open source projects. Creator of Reviu, Kinora and Skrib. Available for freelance work.',
+  description: 'Independent software engineer building apps and open source projects. Creator of Reviu, Kinora, Glanou and Skrib. Available for freelance work.',
   email: 'hi@jorisgallot.dev',
   availability: 'Available for freelance work',
 }
@@ -47,6 +47,17 @@ export const PRODUCTS: Product[] = [
       { label: 'Stack', value: 'TypeScript · Playwright' },
       { label: 'Platform', value: 'Web' },
       { label: 'Model', value: 'Cloud' },
+    ],
+  },
+  {
+    key: 'glanou',
+    name: 'Glanou',
+    tagline: 'A daily general-knowledge app in French. A few new questions a day, short explanations, and spaced repetition so you remember.',
+    href: 'https://glanou.com',
+    specs: [
+      { label: 'Stack', value: 'TypeScript · Vue · Swift' },
+      { label: 'Platform', value: 'Web · iOS' },
+      { label: 'Model', value: 'Free + Plus' },
     ],
   },
   {

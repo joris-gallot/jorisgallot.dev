@@ -13,7 +13,10 @@ repoURL: "https://github.com/joris-gallot/gpui-devtools"
 
 ```toml
 [features]
-devtools = ["dep:gpui-devtools", "gpui/inspector"]
+devtools = [
+  "dep:gpui-devtools",
+  "gpui/inspector"
+]
 
 [dependencies]
 gpui = { package = "gpui-pre", version = "0.3" }

@@ -3,7 +3,7 @@ import type { Metadata, Product, Site, Socials } from '@types'
 export const SITE: Site = {
   name: 'Joris Gallot',
   title: 'Joris Gallot · Software engineer',
-  description: 'Independent software engineer building apps and open source projects. Creator of Reviu, Kinora, Glanou and Skrib. Available for freelance work.',
+  description: 'Independent software engineer building apps and open source projects. Creator of Reviu, Kinora, Glanou, Skrib and depesh. Available for freelance work.',
   email: 'hi@jorisgallot.dev',
   availability: 'Available for freelance work',
 }
@@ -69,6 +69,17 @@ export const PRODUCTS: Product[] = [
       { label: 'Stack', value: 'Swift · SwiftUI' },
       { label: 'Platform', value: 'macOS' },
       { label: 'Model', value: 'One-time' },
+    ],
+  },
+  {
+    key: 'depesh',
+    name: 'depesh',
+    tagline: 'An inbox for your AI agent. Ask Claude, ChatGPT, Codex or Cursor to send a message or files to someone, and their agent reads it from their inbox.',
+    href: 'https://depesh.app',
+    specs: [
+      { label: 'Stack', value: 'TypeScript · Hono · Vue' },
+      { label: 'Platform', value: 'MCP · Web' },
+      { label: 'Model', value: 'Free + Paid' },
     ],
   },
 ]

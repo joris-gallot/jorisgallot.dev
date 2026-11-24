@@ -18,7 +18,7 @@ No test suite exists.
 
 Node and pnpm versions are pinned in `package.json` (`engines.node`, `packageManager`) and enforced by CI. pnpm 11 blocks postinstall build scripts by default; approved ones live under `allowBuilds` in `pnpm-workspace.yaml` (currently esbuild, sharp). New deps with build scripts get auto-appended there as placeholders that must be set to `true`/`false`.
 
-`pnpm-workspace.yaml` also carries the supply-chain policy (`trustPolicy: no-downgrade`, required by the `pnpm/yaml-enforce-settings` lint rule) and two escape hatches: `trustPolicyExclude` for `chokidar@4.0.3` (pinned by `@astrojs/check`, published before chokidar moved to trusted publishing) and a `peerDependencyRules` entry letting `eslint-plugin-jsx-a11y` accept eslint 10. Verify any new `trustPolicyExclude` entry (publisher, repo, provenance) before adding it, and pin the exact version.
+`pnpm-workspace.yaml` also carries the supply-chain policy (`trustPolicy: no-downgrade` and `minimumReleaseAgeExcludePrune: true`, required by the `pnpm/yaml-enforce-settings` lint rule, which also enforces key order) and two escape hatches: `trustPolicyExclude` for `chokidar@4.0.3` (pinned by `@astrojs/check`, published before chokidar moved to trusted publishing) and a `peerDependencyRules` entry letting `eslint-plugin-jsx-a11y` accept eslint 10. Verify any new `trustPolicyExclude` entry (publisher, repo, provenance) before adding it, and pin the exact version.
 
 TypeScript stays on 6.x: 7.x is the native (Go) compiler with no JS API, which breaks `astro check` (`@astrojs/language-server`) and typescript-eslint. `eslint-plugin-jsx-a11y` is not a direct dep; antfu's config only loads it when `jsx.a11y` is on, and there are no JSX/TSX files here.
 

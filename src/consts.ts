@@ -55,7 +55,7 @@ export const PRODUCTS: Product[] = [
     tagline: 'An inbox for your AI agent. Ask Claude, ChatGPT, Codex or Cursor to send a message or files to someone, and their agent reads it from their inbox.',
     href: 'https://depesh.app',
     specs: [
-      { label: 'Stack', value: 'TypeScript · Hono · Vue' },
+      { label: 'Stack', value: 'TypeScript · Vue' },
       { label: 'Platform', value: 'MCP · Web' },
       { label: 'Model', value: 'Free + Paid' },
     ],
